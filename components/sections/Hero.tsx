@@ -143,20 +143,6 @@ export function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {/* Status Badge - 24px margin bottom */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <Badge
-            variant="outline"
-            className="border-[#ff2d2d]/40 text-muted-foreground gap-2 px-4 py-2 text-sm inline-flex items-center"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff2d2d] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff2d2d]" />
-            </span>
-            Available for opportunities
-          </Badge>
-        </motion.div>
-
         {/* Name Treatment - 24px margin bottom */}
         <motion.div variants={itemVariants} className="mb-6">
           <ClarkKitchenEmblem />
