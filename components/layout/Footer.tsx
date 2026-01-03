@@ -19,7 +19,7 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center space-y-4">
           {/* Social Links */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-3 sm:space-x-4 md:space-x-6">
             {socialLinks.map((link) => (
               <a
                 key={link.name}

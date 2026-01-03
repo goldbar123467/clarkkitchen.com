@@ -335,7 +335,7 @@ export function About() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
           {/* Left Column - What Sets Me Apart */}
           <motion.div
             initial="hidden"

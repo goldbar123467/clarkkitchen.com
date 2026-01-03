@@ -105,7 +105,7 @@ export function GadgetCard({
         <div className="mb-4">
           {/* Title - Phase 4 */}
           <motion.h3
-            className="text-xl font-bold text-white mb-2 font-mono"
+            className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 font-mono"
             initial={{ opacity: 0 }}
             animate={{ opacity: bootPhase >= 4 ? 1 : 0 }}
           >

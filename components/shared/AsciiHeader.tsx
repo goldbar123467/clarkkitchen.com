@@ -16,8 +16,8 @@ export function AsciiHeader({ title, className, centered = false }: AsciiHeaderP
     return (
       <div
         className={cn(
-          "flex items-center justify-center gap-3 font-mono text-[#ff2d2d]/70 select-none",
-          "text-xs sm:text-sm tracking-[0.2em] uppercase",
+          "flex items-center justify-center gap-2 sm:gap-3 font-mono text-[#ff2d2d]/70 select-none",
+          "text-xs sm:text-sm tracking-wider sm:tracking-[0.2em] uppercase",
           className
         )}
         aria-label={title}

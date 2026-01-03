@@ -53,7 +53,7 @@ export function Contact() {
             <AsciiHeader title="Let's Connect" centered className="mb-5" />
 
             {/* Main heading - baseline aligned */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
               <span className="text-foreground align-baseline">Let's </span>
               <span
                 className="inline-block align-baseline px-3 py-1 border-2 border-[#ff2d2d] rounded text-[#ff2d2d]"
@@ -74,7 +74,7 @@ export function Contact() {
           </div>
 
           {/* Platform Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
             {platformCards.map((platform) => (
               <a
                 key={platform.name}
@@ -89,7 +89,7 @@ export function Contact() {
               >
                 <GlassCard
                   className={cn(
-                    "p-6 transition-all duration-300",
+                    "p-4 sm:p-5 md:p-6 transition-all duration-300",
                     "hover:scale-105 hover:border-[#ff2d2d]/50",
                     "hover:shadow-[0_0_30px_rgba(255,45,45,0.2)]",
                     "hover:-translate-y-1"
@@ -123,14 +123,14 @@ export function Contact() {
 
           {/* Closing CTA */}
           <div className="text-center space-y-6 pt-8">
-            <blockquote className="text-lg sm:text-xl font-medium text-foreground/90 italic border-l-4 border-[#ff2d2d] pl-6 py-2 max-w-2xl mx-auto text-left">
+            <blockquote className="text-base sm:text-lg md:text-xl font-medium text-foreground/90 italic border-l-4 border-[#ff2d2d] pl-3 sm:pl-4 md:pl-6 py-2 max-w-2xl mx-auto text-left">
               "Every system is a social system."
             </blockquote>
             <Button
               asChild
               size="lg"
               className={cn(
-                "px-8 py-6 text-base font-medium",
+                "px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-medium",
                 "bg-[#ff2d2d] text-white",
                 "hover:bg-[#ff2d2d]/90 hover:scale-105",
                 "transition-all duration-300",

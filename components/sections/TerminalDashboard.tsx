@@ -29,7 +29,7 @@ export function TerminalDashboard() {
   return (
     <section
       id="terminal-dashboard"
-      className="relative py-24 px-6"
+      className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6"
     >
       <div className="mx-auto max-w-[1400px]">
         {/* Header */}

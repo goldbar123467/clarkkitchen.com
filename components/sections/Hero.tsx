@@ -165,7 +165,7 @@ export function Hero() {
         {/* Tagline - 16px margin bottom */}
         <motion.p
           variants={itemVariants}
-          className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#E2E8F0] mb-4"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#E2E8F0] mb-4"
         >
           Teacher by day. Builder by night.
         </motion.p>
@@ -173,7 +173,7 @@ export function Hero() {
         {/* Subtitle - 32px margin bottom */}
         <motion.p
           variants={itemVariants}
-          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
         >
           Shipping systems that work when reality shows up.
         </motion.p>
@@ -204,7 +204,7 @@ export function Hero() {
             size="lg"
             variant="default"
             onClick={() => scrollToSection("ops-tablet")}
-            className="glow-sm hover:glow hover:scale-105 transition-all duration-300 px-8 h-14 text-base font-semibold min-w-[160px]"
+            className="glow-sm hover:glow hover:scale-105 transition-all duration-300 px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base font-semibold min-w-[140px] sm:min-w-[160px]"
           >
             View Projects
           </Button>
@@ -213,7 +213,7 @@ export function Hero() {
             size="lg"
             variant="outline"
             onClick={() => scrollToSection("contact")}
-            className="border-[#1f1f1f] hover:border-[#ff2d2d]/50 hover:text-[#ff2d2d] hover:scale-105 transition-all duration-300 px-8 h-14 text-base font-semibold min-w-[160px]"
+            className="border-[#1f1f1f] hover:border-[#ff2d2d]/50 hover:text-[#ff2d2d] hover:scale-105 transition-all duration-300 px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base font-semibold min-w-[140px] sm:min-w-[160px]"
           >
             Get in Touch
           </Button>
@@ -222,7 +222,7 @@ export function Hero() {
         {/* Social Links Row - centered with consistent gap */}
         <motion.div
           variants={itemVariants}
-          className="flex items-center justify-center gap-4"
+          className="flex items-center justify-center gap-3 sm:gap-4"
         >
           {socialLinks.map((social, index) => {
             const Icon = social.icon;
@@ -248,7 +248,7 @@ export function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
         animate={{ opacity: showScrollIndicator ? 1 : 0 }}
         transition={{ duration: 0.3 }}

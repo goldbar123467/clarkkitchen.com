@@ -72,7 +72,7 @@ export function EquipmentWall() {
     <section
       id="equipment"
       className={cn(
-        "relative w-full py-20 sm:py-32",
+        "relative w-full py-12 sm:py-20 md:py-32",
         "bg-gradient-to-b from-[#0a0a0a] via-[#080808] to-[#0a0a0a]"
       )}
     >
@@ -124,10 +124,12 @@ export function EquipmentWall() {
                 index={i}
               >
                 {({ isHovered }) => (
-                  <div className="flex flex-col items-center gap-4 w-full h-full">
+                  <div className="flex flex-col items-center gap-3 sm:gap-4 w-full h-full">
                     <div className={cn(
                       "flex items-center justify-center",
-                      gadget.span.includes("row-span-2") ? "w-32 h-32 md:w-40 md:h-40" : "w-24 h-24 md:w-28 md:h-28"
+                      gadget.span.includes("row-span-2")
+                        ? "w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40"
+                        : "w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
                     )}>
                       <gadget.Icon isHovered={isHovered} className="w-full h-full" />
                     </div>

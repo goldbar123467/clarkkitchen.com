@@ -99,7 +99,7 @@ export function Navigation() {
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo - Left side */}
           <div className="flex items-center">
             <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
@@ -171,8 +171,8 @@ export function Navigation() {
                   <div className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 border border-[#ff2d2d]/20" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="glass-strong w-[300px] sm:w-[400px] border-l border-[#1f1f1f]">
-                <div className="flex flex-col space-y-8 mt-8">
+              <SheetContent side="right" className="glass-strong w-[85vw] max-w-[400px] border-l border-[#1f1f1f]">
+                <div className="flex flex-col space-y-6 sm:space-y-8 mt-6 sm:mt-8">
                   {/* Mobile Logo */}
                   <div className="flex items-center justify-center mb-4">
                     <KyzloLogo size="md" animated={true} />
@@ -189,7 +189,7 @@ export function Navigation() {
                           handleNavClick(link.href);
                         }}
                         className={cn(
-                          "relative px-4 py-3 text-lg font-medium transition-all duration-200 rounded-md group",
+                          "relative px-4 py-2.5 text-base sm:text-lg font-medium transition-all duration-200 rounded-md group",
                           activeSection === link.href.replace("#", "")
                             ? "text-[#ff2d2d] bg-[#ff2d2d]/10"
                             : "text-foreground/70 hover:text-[#ff2d2d] hover:bg-[#ff2d2d]/5"

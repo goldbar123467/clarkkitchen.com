@@ -14,8 +14,8 @@ export function GlassCard({
   return (
     <div
       className={cn(
-        // Base glassmorphism styles with red tint
-        "relative rounded-lg backdrop-blur-xl",
+        // Base glassmorphism styles with red tint - responsive blur for performance
+        "relative rounded-lg backdrop-blur-sm sm:backdrop-blur-md md:backdrop-blur-xl",
         "bg-[#121212]/40",
         // Border with glow on hover
         "border border-[#1f1f1f]",

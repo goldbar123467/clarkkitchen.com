@@ -54,14 +54,14 @@ function MissionCard({ mission, isActive }: MissionCardProps) {
         </div>
         <Badge
           variant="outline"
-          className={cn("uppercase text-[10px] tracking-wider", statusStyles[mission.status])}
+          className={cn("uppercase text-xs tracking-wider", statusStyles[mission.status])}
         >
           {mission.status}
         </Badge>
       </div>
 
       {/* Classification */}
-      <div className="text-[10px] text-[#6b7280] mb-4 tracking-widest">
+      <div className="text-xs text-[#6b7280] mb-4 tracking-widest">
         CLASSIFICATION: {categoryLabels[mission.category] || mission.category.toUpperCase()}
       </div>
 

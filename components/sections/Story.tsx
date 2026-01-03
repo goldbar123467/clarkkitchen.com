@@ -105,10 +105,10 @@ const storyChapters = [
             Just a shared screen, a fresh repo, and two people tired of waiting
             for someone else to solve problems we understood better than anyone.
           </p>
-          <div className="mt-4 p-4 rounded-lg border border-[#ff2d2d]/20 bg-[#ff2d2d]/5">
-            <div className="flex items-start gap-3">
+          <div className="mt-4 p-3 sm:p-4 rounded-lg border border-[#ff2d2d]/20 bg-[#ff2d2d]/5 overflow-x-auto">
+            <div className="flex items-start gap-2 sm:gap-3 min-w-0">
               <svg
-                className="w-5 h-5 text-[#ff2d2d] flex-shrink-0 mt-0.5"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-[#ff2d2d] flex-shrink-0 mt-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -120,7 +120,7 @@ const storyChapters = [
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
-              <p className="font-mono text-xs text-[#ff2d2d] leading-relaxed">
+              <p className="font-mono text-[10px] sm:text-xs text-[#ff2d2d] leading-relaxed whitespace-nowrap">
                 $ git init kyzlo-labs<br />
                 $ git commit -m "First commit: Build for builders"
               </p>
@@ -266,7 +266,7 @@ export function Story() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <AsciiHeader title="STORY: THE ORIGIN" className="mb-6" />
+          <AsciiHeader title="KYZLO: THE ORIGIN" className="mb-6" />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -276,10 +276,7 @@ export function Story() {
             className="max-w-2xl"
           >
             <p className="text-[#6b7280] text-sm md:text-base leading-relaxed">
-              From classroom management to distributed systems. From late-night
-              frustration to{" "}
-              <span className="text-[#ff2d2d] font-semibold">Kyzlo Labs</span>.
-              This is how systems thinking and stubbornness built something real.
+              From classroom chaos to distributed systems. From late-night Discord calls to Kyzlo Labs. No pitch decks. No investors. Just building what needed to exist.
             </p>
           </motion.div>
         </motion.div>

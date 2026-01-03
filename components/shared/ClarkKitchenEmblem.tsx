@@ -11,6 +11,7 @@ export function ClarkKitchenEmblem() {
         .logo-container {
           display: flex;
           align-items: baseline;
+          justify-content: center;
           gap: 14px;
         }
 
@@ -54,6 +55,27 @@ export function ClarkKitchenEmblem() {
         @media (max-width: 640px) {
           .clark, .kitchen {
             font-size: 36px;
+            letter-spacing: 2px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .clark, .kitchen {
+            font-size: 28px;
+            letter-spacing: 2px;
+          }
+          .logo-container {
+            gap: 10px;
+          }
+        }
+
+        @media (max-width: 375px) {
+          .clark, .kitchen {
+            font-size: 24px;
+            letter-spacing: 1px;
+          }
+          .logo-container {
+            gap: 8px;
           }
         }
       `}</style>

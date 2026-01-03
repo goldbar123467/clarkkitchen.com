@@ -97,11 +97,11 @@ export function TacticalTypewriter({
       status: "text-[10px] px-3 py-1",
     },
     xl: {
-      container: "px-8 py-6",
-      prefix: "text-lg",
-      text: "text-2xl md:text-3xl",
-      category: "text-sm",
-      status: "text-xs px-4 py-1.5",
+      container: "px-4 sm:px-6 md:px-8 py-4 sm:py-6",
+      prefix: "text-base sm:text-lg",
+      text: "text-lg sm:text-xl md:text-2xl lg:text-3xl",
+      category: "text-xs sm:text-sm",
+      status: "text-[10px] sm:text-xs px-3 sm:px-4 py-1 sm:py-1.5",
     },
   };
 
@@ -113,7 +113,7 @@ export function TacticalTypewriter({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "relative inline-block min-w-[320px] md:min-w-[450px] lg:min-w-[550px]",
+        "relative inline-block w-full max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[550px]",
         className
       )}
     >

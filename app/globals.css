@@ -167,17 +167,32 @@
     @apply bg-gradient-to-r from-[#ff2d2d] via-[#dc2626] to-[#f97316] bg-clip-text text-transparent;
   }
 
-  /* Glow effects - Neon Red primary */
+  /* Glow effects - Neon Red primary - reduced on mobile for performance */
   .glow {
-    box-shadow: 0 0 20px var(--glow);
-  }
-
-  .glow-sm {
     box-shadow: 0 0 10px var(--glow);
   }
 
+  .glow-sm {
+    box-shadow: 0 0 5px var(--glow);
+  }
+
   .glow-lg {
-    box-shadow: 0 0 40px var(--glow);
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  /* Enhanced glows on larger screens with hover capability */
+  @media (min-width: 640px) and (hover: hover) {
+    .glow {
+      box-shadow: 0 0 20px var(--glow);
+    }
+
+    .glow-sm {
+      box-shadow: 0 0 10px var(--glow);
+    }
+
+    .glow-lg {
+      box-shadow: 0 0 40px var(--glow);
+    }
   }
 
   .glow-orange {
@@ -340,22 +355,40 @@
   color: var(--warm-white);
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* Scrollbar styling - only on devices with hover (desktops) */
+@media (hover: hover) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted;
+  }
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-muted/20;
-}
+/* Thin scrollbar on mobile/touch devices */
+@media (hover: none) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-muted/50 rounded-full;
-}
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-muted;
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted/30 rounded-full;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

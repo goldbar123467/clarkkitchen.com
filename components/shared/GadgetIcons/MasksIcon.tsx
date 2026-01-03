@@ -68,21 +68,21 @@ export function MasksIcon({ isHovered = false, className }: MasksIconProps) {
         );
       })}
 
-      {/* Orbiting red face - circles the group and exits/re-enters frame */}
+      {/* Orbiting red face - smooth continuous orbit around the group */}
       <motion.g
         animate={{
-          // Orbit path: starts right, goes down-right, exits bottom-right,
-          // re-enters from top-left, comes back around
-          x: [35, 55, 75, 95, -15, -15, 10, 35],
-          y: [15, 25, 50, 80, -10, 15, 10, 15],
-          scale: [0.7, 0.75, 0.7, 0.5, 0.5, 0.6, 0.7, 0.7],
-          opacity: [1, 1, 1, 0, 0, 0.8, 1, 1],
+          // True orbital path - enters from left, arcs around bottom, exits right
+          // No bounce-back, just continuous flow
+          x: [-15, 20, 50, 80, 115],
+          y: [30, 65, 75, 65, 30],
+          scale: [0.5, 0.7, 0.75, 0.7, 0.5],
+          opacity: [0, 1, 1, 1, 0],
         }}
         transition={{
           duration: 1,
           repeat: Infinity,
-          ease: "linear",
-          times: [0, 0.15, 0.35, 0.45, 0.55, 0.7, 0.85, 1],
+          ease: "easeInOut",
+          times: [0, 0.25, 0.5, 0.75, 1],
         }}
       >
         <ellipse
