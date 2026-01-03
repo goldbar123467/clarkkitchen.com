@@ -11,6 +11,7 @@ interface MasksIconProps {
 export function MasksIcon({ isHovered = false, className }: MasksIconProps) {
   return (
     <svg viewBox="0 0 100 100" className={cn("w-full h-full", className)}>
+      {/* Static face group */}
       {[0, 1, 2, 3, 4].map((i) => {
         const angle = (i - 2) * 25;
         const x = 50 + Math.sin((angle * Math.PI) / 180) * 25;
@@ -66,6 +67,39 @@ export function MasksIcon({ isHovered = false, className }: MasksIconProps) {
           </motion.g>
         );
       })}
+
+      {/* Orbiting red face - circles the group and exits/re-enters frame */}
+      <motion.g
+        animate={{
+          // Orbit path: starts right, goes down-right, exits bottom-right,
+          // re-enters from top-left, comes back around
+          x: [35, 55, 75, 95, -15, -15, 10, 35],
+          y: [15, 25, 50, 80, -10, 15, 10, 15],
+          scale: [0.7, 0.75, 0.7, 0.5, 0.5, 0.6, 0.7, 0.7],
+          opacity: [1, 1, 1, 0, 0, 0.8, 1, 1],
+        }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          ease: "linear",
+          times: [0, 0.15, 0.35, 0.45, 0.55, 0.7, 0.85, 1],
+        }}
+      >
+        <ellipse
+          cx="0"
+          cy="0"
+          rx="8"
+          ry="10"
+          fill="#121212"
+          stroke="#ff2d2d"
+          strokeWidth="1.5"
+        />
+        <ellipse cx="-3" cy="-2" rx="1.5" ry="1" fill="#ff2d2d" opacity="0.9" />
+        <ellipse cx="3" cy="-2" rx="1.5" ry="1" fill="#ff2d2d" opacity="0.9" />
+        <path d="M-3 3 Q0 5, 3 3" fill="none" stroke="#ff2d2d" strokeWidth="1" />
+      </motion.g>
+
+      {/* Stage/platform */}
       <ellipse cx="50" cy="75" rx="35" ry="8" fill="#0a0a0a" stroke="#6b7280" strokeWidth="1" />
     </svg>
   );
