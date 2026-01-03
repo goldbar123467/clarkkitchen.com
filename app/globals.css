@@ -1,0 +1,777 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Batman Beyond Custom Colors */
+  --color-neon-red: var(--neon-red);
+  --color-steel-gray: var(--steel-gray);
+  --color-glow: var(--glow);
+}
+
+/* Batman Beyond Theme - Dark Futuristic */
+:root {
+  --radius: 0.75rem;
+
+  /* Batman Beyond - Base colors */
+  --ink: #0a0a0a;
+  --surface: #121212;
+  --border-dark: #1f1f1f;
+  --neon-red: #ff2d2d;
+  --orange-red: #f97316;
+  --crimson: #dc2626;
+  --warm-white: #e2e8e0;
+  --steel-gray: #6b7280;
+
+  /* Core theme */
+  --background: var(--ink);
+  --foreground: var(--warm-white);
+
+  /* Card with dark glass */
+  --card: var(--surface);
+  --card-foreground: var(--warm-white);
+
+  --popover: var(--surface);
+  --popover-foreground: var(--warm-white);
+
+  /* Primary - Neon Red */
+  --primary: var(--neon-red);
+  --primary-foreground: var(--ink);
+
+  /* Secondary - Orange Red */
+  --secondary: var(--orange-red);
+  --secondary-foreground: var(--ink);
+
+  --muted: #1f1f1f;
+  --muted-foreground: #6b7280;
+
+  /* Accent - Orange Red */
+  --accent: var(--orange-red);
+  --accent-foreground: var(--ink);
+
+  /* Destructive - Crimson */
+  --destructive: var(--crimson);
+  --destructive-foreground: var(--warm-white);
+
+  --border: var(--border-dark);
+  --input: var(--border-dark);
+  --ring: var(--neon-red);
+
+  /* Chart colors - themed */
+  --chart-1: var(--neon-red);
+  --chart-2: var(--orange-red);
+  --chart-3: var(--steel-gray);
+  --chart-4: var(--crimson);
+  --chart-5: var(--orange-red);
+
+  /* Sidebar */
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--warm-white);
+  --sidebar-primary: var(--neon-red);
+  --sidebar-primary-foreground: var(--ink);
+  --sidebar-accent: var(--border-dark);
+  --sidebar-accent-foreground: var(--warm-white);
+  --sidebar-border: var(--border-dark);
+  --sidebar-ring: var(--neon-red);
+
+  /* Theme-specific */
+  --glow: rgba(255, 45, 45, 0.5);
+  --glow-orange: rgba(249, 115, 22, 0.5);
+  --glow-gray: rgba(107, 114, 128, 0.5);
+}
+
+/* Dark class inherits root (dark-first) */
+.dark {
+  --background: var(--ink);
+  --foreground: var(--warm-white);
+  --card: var(--surface);
+  --card-foreground: var(--warm-white);
+  --popover: var(--surface);
+  --popover-foreground: var(--warm-white);
+  --primary: var(--neon-red);
+  --primary-foreground: var(--ink);
+  --secondary: var(--orange-red);
+  --secondary-foreground: var(--ink);
+  --muted: #1f1f1f;
+  --muted-foreground: #6b7280;
+  --accent: var(--orange-red);
+  --accent-foreground: var(--ink);
+  --destructive: var(--crimson);
+  --destructive-foreground: var(--warm-white);
+  --border: var(--border-dark);
+  --input: var(--border-dark);
+  --ring: var(--neon-red);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Batman Beyond Utility Classes */
+@layer utilities {
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#ff2d2d] via-[#dc2626] to-[#f97316] bg-clip-text text-transparent;
+  }
+
+  /* Glow effects - Neon Red primary */
+  .glow {
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 10px var(--glow);
+  }
+
+  .glow-lg {
+    box-shadow: 0 0 40px var(--glow);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px var(--glow-orange);
+  }
+
+  .glow-gray {
+    box-shadow: 0 0 20px var(--glow-gray);
+  }
+
+  /* Dark Glassmorphism */
+  .glass {
+    @apply backdrop-blur-xl border border-border/50;
+    background-color: rgba(18, 18, 18, 0.8);
+  }
+
+  .glass-strong {
+    @apply backdrop-blur-2xl border border-border/50;
+    background-color: rgba(18, 18, 18, 0.95);
+  }
+
+  /* Grain/Noise texture */
+  .texture-grain {
+    position: relative;
+  }
+
+  .texture-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.03;
+  }
+
+  /* Grid background pattern - dark theme */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(31, 31, 31, 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 31, 31, 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-dot {
+    background-image: radial-gradient(rgba(31, 31, 31, 0.4) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Gradient border - neon red theme */
+  .border-gradient {
+    position: relative;
+    background: linear-gradient(var(--background), var(--background)) padding-box,
+                linear-gradient(135deg, var(--neon-red), var(--steel-gray)) border-box;
+    border: 1px solid transparent;
+  }
+
+  /* Animation classes */
+  .animate-glow {
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-scan {
+    animation: scan-sweep 25s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes glow-pulse {
+  from {
+    box-shadow: 0 0 20px var(--glow);
+  }
+  to {
+    box-shadow: 0 0 40px var(--glow), 0 0 60px var(--glow);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scan-sweep {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  2% {
+    opacity: 0.3;
+  }
+  5% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--glow);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px var(--glow), 0 0 30px var(--glow);
+  }
+}
+
+/* Scan line overlay effect */
+.scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 45, 45, 0.3),
+    rgba(255, 45, 45, 0.6),
+    rgba(255, 45, 45, 0.3),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 9999;
+  filter: blur(0.5px);
+  animation: scan-sweep 25s linear infinite;
+}
+
+/* Selection styling - Neon Red */
+::selection {
+  background-color: rgba(255, 45, 45, 0.2);
+  color: var(--warm-white);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted/20;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BATCAVE ATMOSPHERE EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Rocky cave texture - SVG noise filter */
+.cave-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Cave fog - rising mist at bottom */
+.cave-fog {
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(10, 10, 10, 0.7) 10%,
+    rgba(10, 10, 10, 0.4) 20%,
+    rgba(10, 10, 10, 0.15) 35%,
+    transparent 50%
+  );
+}
+
+/* Vignette - darkened cave edges */
+.cave-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+/* Tech glow - red emanation from center displays */
+.tech-glow {
+  background: radial-gradient(
+    ellipse at 50% 30%,
+    rgba(255, 45, 45, 0.08) 0%,
+    rgba(255, 45, 45, 0.04) 25%,
+    rgba(255, 45, 45, 0.01) 45%,
+    transparent 65%
+  );
+}
+
+/* Stalactite shadow effect */
+.stalactite-shadow {
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.9));
+}
+
+/* Ambient cave particles animation */
+@keyframes dust-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-15px) translateX(5px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-8px) translateX(-3px);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-20px) translateX(8px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes water-drip {
+  0% {
+    transform: translateY(-100%) scaleY(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+    transform: translateY(0) scaleY(1);
+  }
+  90% {
+    opacity: 0.4;
+    transform: translateY(100vh) scaleY(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) scaleY(0.5);
+  }
+}
+
+.animate-dust {
+  animation: dust-float 8s ease-in-out infinite;
+}
+
+.animate-drip {
+  animation: water-drip 4s ease-in infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   OPS TABLET EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Red underglow with layered box-shadows */
+.ops-tablet-glow {
+  box-shadow:
+    0 0 10px rgba(255, 45, 45, 0.3),
+    0 0 30px rgba(255, 45, 45, 0.2),
+    0 0 60px rgba(255, 45, 45, 0.1),
+    0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Scan lines effect */
+.ops-tablet-scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 45, 45, 0.03) 2px,
+    rgba(255, 45, 45, 0.03) 3px
+  );
+  animation: ops-tablet-scan-scroll 50s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes ops-tablet-scan-scroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 1000px;
+  }
+}
+
+/* Flicker effect - subtle brightness variation */
+.ops-tablet-flicker {
+  animation: ops-tablet-flicker 8s linear infinite;
+  background: transparent;
+}
+
+@keyframes ops-tablet-flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 0;
+  }
+  20%, 21.999% {
+    opacity: 0.03;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  63%, 63.999% {
+    opacity: 0.02;
+    background: rgba(255, 255, 255, 0.01);
+  }
+  65%, 69.999% {
+    opacity: 0.04;
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Noise texture overlay */
+.ops-tablet-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   EQUIPMENT WALL EFFECTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Display case glass reflection */
+.display-case-glass {
+  position: relative;
+}
+
+.display-case-glass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 40%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Holographic shimmer effect */
+.holographic-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-shimmer::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 45, 45, 0.1) 35%,
+    rgba(249, 115, 22, 0.08) 40%,
+    rgba(220, 38, 38, 0.1) 45%,
+    transparent 50%
+  );
+  animation: holographic-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes holographic-sweep {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Circuit energy flow animation */
+@keyframes energy-flow {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+.animate-energy-flow {
+  stroke-dasharray: 50 50;
+  animation: energy-flow 2s linear infinite;
+}
+
+/* Suit transformation wave */
+@keyframes transform-wave {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.animate-transform-wave {
+  animation: transform-wave 1.5s ease-out forwards;
+}
+
+/* Display case edge glow */
+.edge-glow {
+  box-shadow:
+    inset 1px 0 0 rgba(255, 45, 45, 0.2),
+    inset -1px 0 0 rgba(255, 45, 45, 0.2),
+    inset 0 1px 0 rgba(255, 45, 45, 0.2),
+    inset 0 -1px 0 rgba(255, 45, 45, 0.2);
+}
+
+.edge-glow-active {
+  box-shadow:
+    inset 1px 0 0 rgba(255, 45, 45, 0.5),
+    inset -1px 0 0 rgba(255, 45, 45, 0.5),
+    inset 0 1px 0 rgba(255, 45, 45, 0.5),
+    inset 0 -1px 0 rgba(255, 45, 45, 0.5),
+    0 0 20px rgba(255, 45, 45, 0.2);
+}
+
+/* Hexagonal pattern background */
+.bg-hexagon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ff2d2d' fill-opacity='0.08'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Gadget idle pulse */
+@keyframes gadget-idle {
+  0%, 100% {
+    box-shadow: inset 0 0 15px rgba(255, 45, 45, 0.05);
+  }
+  50% {
+    box-shadow: inset 0 0 25px rgba(255, 45, 45, 0.1);
+  }
+}
+
+.animate-gadget-idle {
+  animation: gadget-idle 3s ease-in-out infinite;
+}
+
+/* Spotlight from above effect */
+.spotlight-above {
+  position: relative;
+}
+
+.spotlight-above::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 40px;
+  background: radial-gradient(ellipse, rgba(255, 45, 45, 0.25), transparent);
+  filter: blur(15px);
+  pointer-events: none;
+}
+
+/* Teacher Suit Frame */
+.suit-frame {
+  @apply relative rounded-xl overflow-hidden;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 50%, #1a1a1a 100%);
+  border: 2px solid #2a2a2a;
+  box-shadow:
+    0 0 20px rgba(255, 45, 45, 0.2),
+    0 0 40px rgba(255, 45, 45, 0.1),
+    inset 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Circuit glow effect */
+.circuit-glow {
+  filter: drop-shadow(0 0 4px #ff2d2d) drop-shadow(0 0 8px rgba(255, 45, 45, 0.5));
+}
+
+/* Animated circuit path */
+.circuit-path-animated {
+  stroke-dasharray: 8 4;
+  animation: circuit-flow 2s linear infinite;
+}
+
+@keyframes circuit-flow {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Terminal text styling */
+.terminal-text {
+  @apply font-mono text-xs leading-relaxed;
+  text-shadow: 0 0 10px rgba(255, 45, 45, 0.5);
+}
+
+/* HUD panel styling */
+.hud-panel {
+  @apply bg-[#0a0a0a]/90 backdrop-blur-sm rounded-lg border border-[#1f1f1f];
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   EGYPTIAN SNAKE ENERGY FLOW
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Snake energy pulse animation - travels along path */
+@keyframes snake-energy-flow {
+  0% {
+    stroke-dashoffset: 1800;
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.6;
+  }
+}
+
+/* Utility class for CSS-only energy animation */
+.animate-snake-energy {
+  stroke-dasharray: 40 160;
+  animation: snake-energy-flow 4s linear infinite;
+}
+
+/* Snake glow filter CSS fallback */
+.snake-glow {
+  filter: drop-shadow(0 0 8px #ff2d2d) drop-shadow(0 0 20px rgba(255, 45, 45, 0.5));
+}
+
+/* Intense snake glow for hover/active states */
+.snake-glow-intense {
+  filter: drop-shadow(0 0 10px #ff2d2d)
+          drop-shadow(0 0 25px rgba(255, 45, 45, 0.6))
+          drop-shadow(0 0 40px rgba(255, 45, 45, 0.3));
+}
+
+/* Snake energy pulse variations */
+.animate-snake-energy-fast {
+  stroke-dasharray: 40 160;
+  animation: snake-energy-flow 2s linear infinite;
+}
+
+.animate-snake-energy-slow {
+  stroke-dasharray: 40 160;
+  animation: snake-energy-flow 6s linear infinite;
+}
+
+/* Snake body shimmer effect */
+@keyframes snake-shimmer {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-snake-shimmer {
+  animation: snake-shimmer 3s ease-in-out infinite;
+}
